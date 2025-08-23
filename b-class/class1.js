@@ -1,14 +1,14 @@
 class Person {
+  firstName = undefined;
+  
   constructor(firstName, lastName) {
-    console.log('clog from constructor');
-
-    console.log(this); // Check the output (empty object)
+    console.log('In constructor:',this); // Check the output (empty object)
     this.firstName = firstName;
     this.lastName = lastName;
   }
 }
 
-const person = new Person();
+const person = new Person('John', 'Doe');
 
-console.log('clog from outside');
+// Output : Person { firstName: 'John', lastName: 'Doe' }
 console.log(person);
