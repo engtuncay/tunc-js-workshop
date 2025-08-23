@@ -7,14 +7,22 @@
     <title>ES6,Promise,Fetch</title>
   </head>
   <body>
+    Deneme
     <script type="module">
       // module olmazsa async kullanılamaz
       console.log("ex3-async");
+
+      //const fnAsyn = async (n) => n*n;
+      const fnAsyn = async () => {
+          return new Promise(resolve => {
+        setTimeout(() => resolve("fnAsyn"), 2000);
+        });
+      };
       
-      const fnAsyn = async (n) => n * n;
       // Async function returns a promise (The async function is a wrapper around the promise)
-      const ex4Promise = fnAsyn(2);
-      const ex4Value = await fnAsyn(2);
+      const ex4Promise = fnAsyn();
+      console.log("fnAsync fonk sonucu beklenecek");
+      const ex4Value = await fnAsyn();
 
       console.log(ex4Value);
       console.log(fnAsyn);

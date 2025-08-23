@@ -1,0 +1,25 @@
+console.log("async example");
+
+let globalData;
+
+async function getUserAsync(name) {
+  let response = await fetch(`https://api.github.com/users/${name}`);
+  let data = await response.json();
+  globalData = data;
+  return data;
+}
+
+getUserAsync("engtuncay").then((data) => {
+  console.log('Async and Promise executed');
+  //document.body.innerText = "Name:" + data.name;
+});
+
+console.log("getUserAsync");
+// await'i async bir fonksiyon içinde kullanmalıyız
+(async () => {
+  await getUserAsync("engtuncay");
+  console.log('Global Data:',globalData);
+})();
+console.log("getUserAsync-End");
+
+
