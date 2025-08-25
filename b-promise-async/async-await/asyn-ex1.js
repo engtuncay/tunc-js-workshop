@@ -3,11 +3,16 @@ console.log("async example");
 let globalData;
 
 async function getUserAsync(name) {
-  let response = await fetch(`https://api.github.com/users/${name}`);
-  // burada await kullanılmazsa data bir promise olur 
-  let data = await response.json();
-  globalData = data;
-  return data;
+  // burada hata yakalamak istersek try catch kullanmak gerekir
+  try {
+    let response = await fetch(`https://api.github.com/users/${name}`);
+    // burada await kullanılmazsa data bir promise olur
+    let data = await response.json();
+    globalData = data;
+    return data;
+  } catch (error) {
+    console.error("Hata:", error);
+  }
 }
 
 getUserAsync("engtuncay").then((data) => {
