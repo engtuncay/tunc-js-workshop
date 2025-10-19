@@ -1,0 +1,24 @@
+{
+  "name": "javascript-blockchain",
+  "version": "1.0.0",
+  "description": "Basit JavaScript Blockchain implementasyonu",
+  "type": "module",
+  "main": "demo.js",
+  "scripts": {
+    "start": "node demo.js",
+    "dev": "node --watch demo.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "blockchain",
+    "javascript",
+    "crypto",
+    "mining",
+    "proof-of-work"
+  ],
+  "author": "JavaScript Workshop",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
