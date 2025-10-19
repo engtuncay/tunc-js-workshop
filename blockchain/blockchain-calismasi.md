@@ -1,109 +1,5 @@
 engtuncay: javascriptle örnek bir blockchain uygulaması nasıl yazarız
 
-GitHub Copilot: JavaScript ile örnek bir blockchain uygulaması yazalım. Önce mevcut dosyaları kontrol edeyim ve sonra basit ama işlevsel bir blockchain implementasyonu oluşturalım. 
-
-Read [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain)
-
-Blockchain klasörü boş görünüyor. Size basit bir blockchain uygulaması oluşturayım. Blockchain'in temel bileşenlerini içeren bir implementasyon yapacağım: 
-
-Created [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain/block.js)
-
-Created [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain/blockchain.js)
-
-Created [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain/demo.js)
-
-Created [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain/blockchain-demo.html)
-
-Created [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain/README.md)
-
-Şimdi demo uygulamasını çalıştırayım: 
-
-Ran terminal command: cd "y:\devrepo-oraksoft-web\tunc-js-workshop\blockchain" && node demo.js
-
-Made changes.
-
-engtuncay: bunu esm ile yazabilir misin
-
-GitHub Copilot: Tabii! Blockchain uygulamasını ES Modules (ESM) ile yeniden yazayım. Önce mevcut dosyaları ESM formatına çevirelim: 
-
-Using "Replace String in File"
-
-
-```
-
-```
-
-
-Using "Replace String in File"
-
-
-```
-
-```
-
-
-Using "Replace String in File"
-
-Read [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain/blockchain.js#112-112), lines 112 to 112
-
-Using "Replace String in File"
-
-
-```
-
-```
-Şimdi demo dosyasını ESM formatına çevirelim: 
-
-Using "Replace String in File"
-
-
-```
-
-```
-Şimdi package.json dosyasını oluşturalım ki ESM modülleri düzgün çalışsın: 
-
-Created [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain/package.json)
-
-Şimdi ESM ile çalışan yeni bir HTML demo dosyası da oluşturalım: 
-
-Created [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain/blockchain-esm-demo.html)
-
-Şimdi ESM uyumlu bir test dosyası da oluşturalım: 
-
-Created [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain/test-esm.js)
-
-Son olarak README dosyasını güncelleyelim: 
-
-Using "Replace String in File"
-
-
-```
-
-```
-Şimdi ESM demo'yu test edelim: 
-
-Ran terminal command: cd "y:\devrepo-oraksoft-web\tunc-js-workshop\blockchain" && node test-esm.js
-
-Test dosyasında bir sorun var, düzeltelim: 
-
-Using "Replace String in File"
-
-
-```
-
-```
-Blockchain.js dosyasında da bir düzeltme yapalım: 
-
-Read [](file:///y%3A/devrepo-oraksoft-web/tunc-js-workshop/blockchain/blockchain.js#40-40), lines 40 to 70
-
-Mining metodunu düzeltelim: 
-
-Using "Replace String in File"
-
-
-```
-
-```
 Şimdi tekrar test edelim: 
 
 Ran terminal command: node test-esm.js
@@ -136,6 +32,7 @@ Harika! ESM blockchain uygulamanız başarıyla çalışıyor. İşte sizin içi
 - ✅ **Web Crypto API** (tarayıcı için)
 
 ### 💻 Kullanım:
+
 ```bash
 # ESM demo çalıştır
 node demo.js
