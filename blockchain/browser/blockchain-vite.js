@@ -119,54 +119,16 @@ export class Blockchain {
         console.log(`🔗 İşlem Hash: ${transaction.hash}`)
     }
 
-    // İşlem hash'i oluştur (Vite bundled Crypto-JS kullanarak)
+    // İşlem hash'i oluştur (Vite bundled Crypto-JS)
     createTransactionHash(transaction) {
         const transactionString = `${transaction.fromAddress}${transaction.toAddress}${transaction.amount}${Date.now()}`
-        
-        try {
-            return CryptoJS.SHA256(transactionString).toString().substring(0, 16)
-        } catch (error) {
-            // Fallback hash
-            let hash = 0
-            for (let i = 0; i < transactionString.length; i++) {
-                const char = transactionString.charCodeAt(i)
-                hash = ((hash << 5) - hash) + char
-                hash = hash & hash
-            }
-            return Math.abs(hash).toString(16).substring(0, 16)
-        }
+        return CryptoJS.SHA256(transactionString).toString().substring(0, 16)
     }
 
-    // Adres bakiyesini hesapla (Optimized - UTXO benzeri)
+    // Adres bakiyesini hesapla (UTXO Set - Modern yaklaşım)
     getBalance(address) {
-        // Önce UTXO set'inden kontrol et (O(1) karmaşıklık)
-        if (this.utxoSet.has(address)) {
-            return this.utxoSet.get(address)
-        }
-
-        // Eğer UTXO set'inde yoksa, tüm blokları tara (fallback)
-        console.warn(`⚠️ UTXO set'inde ${address} bulunamadı, tüm bloklar taranıyor...`)
-        return this.calculateBalanceFromBlocks(address)
-    }
-
-    // Tüm blokları tarayarak bakiye hesapla (Eski yöntem - sadece fallback)
-    calculateBalanceFromBlocks(address) {
-        let balance = 0
-
-        for (const block of this.chain) {
-            if (Array.isArray(block.data)) {
-                for (const trans of block.data) {
-                    if (trans.fromAddress === address) {
-                        balance -= trans.amount
-                    }
-                    if (trans.toAddress === address) {
-                        balance += trans.amount
-                    }
-                }
-            }
-        }
-
-        return balance
+        // UTXO set'inden bakiye al (O(1) karmaşıklık)
+        return this.utxoSet.get(address) || 0
     }
 
     // UTXO set'ini güncelle (Optimize edilmiş bakiye yönetimi)

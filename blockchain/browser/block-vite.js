@@ -10,32 +10,12 @@ export class Block {
         this.nonce = 0 // Mining için kullanılan sayı
     }
 
-    // SHA-256 hash fonksiyonu (Vite bundled Crypto-JS kullanarak)
+    // SHA-256 hash fonksiyonu (Vite bundled Crypto-JS)
     calculateHash() {
         const str = this.previousHash + this.timestamp + JSON.stringify(this.data) + this.nonce
         
         // Vite bundled Crypto-JS ile SHA-256 hash hesaplama
-        try {
-            return CryptoJS.SHA256(str).toString()
-        } catch (error) {
-            // Fallback: Basit hash (CryptoJS bundle edilemezse)
-            console.warn('⚠️ Vite bundled CryptoJS bulunamadı, basit hash kullanılıyor')
-            return this.simpleHash(str)
-        }
-    }
-
-    // Basit hash fonksiyonu (fallback)
-    simpleHash(str) {
-        let hash = 0
-        if (str.length === 0) return hash.toString()
-        
-        for (let i = 0; i < str.length; i++) {
-            const char = str.charCodeAt(i)
-            hash = ((hash << 5) - hash) + char
-            hash = hash & hash // 32bit integer'a çevir
-        }
-        
-        return Math.abs(hash).toString(16)
+        return CryptoJS.SHA256(str).toString()
     }
 
     // Mining işlemi - Proof of Work (Vite optimized)

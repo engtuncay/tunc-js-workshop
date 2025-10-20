@@ -4,9 +4,6 @@ import { Block } from './block-vite.js'
 import { Blockchain } from './blockchain-vite.js'
 import './style.css' // Vite CSS import
 
-// Global CryptoJS'i window'a ekle (eski kodla uyumluluk için)
-window.CryptoJS = CryptoJS
-
 // Build info display
 const buildTime = __BUILD_TIME__
 const version = __APP_VERSION__ || '1.0.0'
@@ -19,10 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('🚀 Vite Blockchain demo başlatılıyor...')
   console.log(`📅 Build Time: ${buildTime}`)
   console.log(`📦 Version: ${version}`)
-  
-  // Crypto-JS kontrolü
-  const cryptoAvailable = checkCryptoJS()
-  
   console.log('📦 Block sınıfı yüklendi:', typeof Block)
   console.log('🔗 Blockchain sınıfı yüklendi:', typeof Blockchain)
   
@@ -31,24 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Global blockchain instance
 const myBlockchain = new Blockchain()
-
-// Vite bundled Crypto-JS yüklenme kontrolü
-function checkCryptoJS() {
-  if (typeof CryptoJS !== 'undefined') {
-    console.log('✅ Vite bundled Crypto-JS başarıyla yüklendi')
-    console.log('🔐 SHA-256 kullanılabilir (Vite bundled)')
-    
-    // Test hash
-    const testHash = CryptoJS.SHA256('test').toString()
-    console.log('🧪 Test Hash:', testHash)
-    
-    return true
-  } else {
-    console.error('❌ Vite bundled Crypto-JS yüklenemedi!')
-    alert('Vite bundled Crypto-JS yüklenemedi. Basit hash kullanılacak.')
-    return false
-  }
-}
 
 // App initialization
 function initializeApp() {

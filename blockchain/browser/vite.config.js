@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite'
-import legacy from '@vitejs/plugin-legacy'
 
 export default defineConfig({
   // Base URL for production
@@ -20,21 +19,12 @@ export default defineConfig({
     
     // Rollup options
     rollupOptions: {
-      input: {
-        main: 'index.html',
-        local: 'index-local.html',
-        script: 'index-script-tag.html'
-      }
+      input: './index.html'
     }
   },
   
   // Plugins
-  plugins: [
-    // Legacy browser support
-    legacy({
-      targets: ['defaults', 'not IE 11']
-    })
-  ],
+  plugins: [],
   
   // Define global constants
   define: {
