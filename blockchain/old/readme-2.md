@@ -1,6 +1,6 @@
 engtuncay: javascriptle örnek bir blockchain uygulaması nasıl yazarız
 
-Şimdi tekrar test edelim: 
+Şimdi test edelim: 
 
 Ran terminal command: node test-esm.js
 
@@ -56,8 +56,6 @@ npm run dev  # watch mode
 
 Bu ESM implementasyonu modern JavaScript standartlarını kullanarak temiz, modüler ve sürdürülebilir bir blockchain uygulaması sağlar!
 
-Made changes.
-
 engtuncay: blockchain çalışması hakkında bilgi verir misin
 
 GitHub Copilot: Tabii! Size JavaScript ile oluşturduğumuz blockchain uygulaması hakkında detaylı bilgi vereyim. 
@@ -87,7 +85,7 @@ mineBlock(difficulty) {
     const target = Array(difficulty + 1).join("0"); // "00", "000", vb.
     
     while (this.hash.substring(0, difficulty) !== target) {
-        this.nonce++;                    // Sayacı artır
+        this.nonce++; // Sayacı artır
         this.hash = this.calculateHash(); // Yeni hash hesapla
     }
 }
@@ -107,6 +105,7 @@ mineBlock(difficulty) {
 - Bu da sonraki tüm blokları geçersiz kılar
 
 **Validation:**
+
 ```javascript
 isChainValid() {
     for (let i = 1; i < this.chain.length; i++) {
