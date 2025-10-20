@@ -1,25 +1,22 @@
 {
-  "name": "javascript-blockchain",
+  "name": "blockchain-browser-vite",
   "version": "1.0.0",
-  "description": "Basit JavaScript Blockchain implementasyonu",
+  "description": "JavaScript Blockchain Browser Implementation with Vite",
   "type": "module",
-  "main": "demo.js",
   "scripts": {
-    "start": "node demo.js",
-    "crypto": "node demo-node-crypto.js",
-    "node-crypto": "node test-node-crypto.js",
-    "dev": "node --watch demo.js",
-    "dev-crypto": "node --watch demo-node-crypto.js",
-    "dev-node-crypto": "node --watch test-node-crypto.js",
-    "serve": "npx http-server -p 8000",
-    "test": "node test.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "npx http-server -p 8000 ./dist"
   },
   "keywords": [
     "blockchain",
     "javascript",
     "crypto",
     "mining",
-    "proof-of-work"
+    "proof-of-work",
+    "vite",
+    "bundler"
   ],
   "author": "JavaScript Workshop",
   "license": "MIT",
@@ -30,6 +27,7 @@
     "crypto-js": "^4.2.0"
   },
   "devDependencies": {
-    "crypto-browserify": "^3.12.0"
+    "vite": "^5.0.0",
+    "@vitejs/plugin-legacy": "^5.0.0"
   }
 }

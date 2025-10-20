@@ -36,19 +36,22 @@ npm run serve
 
 ## 🎯 Kullanım Senaryoları
 
-### 1. Browser Demo (Görsel Arayüz)
+### 1. Browser Demo (Vite Bundler)
 
 ```bash
-npm run serve
-# http://localhost:8000 adresine git
+cd browser
+npm run dev
+# http://localhost:5173 adresine git
 ```
 
 **Özellikler:**
 - 🖥️ Interactive web interface
+- ⚡ Hot Module Replacement (HMR)
 - 📊 Real-time mining visualization
 - 💰 Balance checking
 - 🔍 Blockchain explorer
 - ⚙️ Difficulty adjustment
+- 🌳 Tree shaking optimization
 
 ### 2. Node.js CLI (Komut Satırı)
 
@@ -67,16 +70,19 @@ npm run node-crypto
 
 ```
 blockchain/
-├── 📁 browser/                    # Browser versiyonları
-│   ├── 📄 block-browser-crypto.js
-│   ├── 📄 blockchain-browser-crypto.js
-│   ├── 📄 index.html              # Web UI
-│   └── 📄 style.css
+├── 📁 browser/                    # Vite Browser versiyonu
+│   ├── 📄 index.html              # Vite entry point
+│   ├── 📄 main.js                 # Ana JavaScript
+│   ├── 📄 block-browser-vite.js   # Vite optimized Block
+│   ├── 📄 blockchain-browser-vite.js # Vite optimized Blockchain
+│   ├── 📄 style.css               # Stylesheet
+│   ├── 📄 vite.config.js          # Vite config
+│   └── 📄 package.json            # Browser dependencies
 ├── 📁 node/                       # Node.js versiyonları
 │   ├── 📄 block-node-crypto.js
 │   ├── 📄 blockchain-node-crypto.js
 │   └── 📄 test-node-crypto.js
-├── 📄 package.json
+├── 📄 package.json                # Ana package.json
 ├── 📄 README.md
 └── 📄 README-comparison.md
 ```
@@ -138,10 +144,15 @@ myBlockchain.rebuildUtxoSet();
 | `npm start` | Temel blockchain demo | Node.js |
 | `npm run crypto` | Crypto-JS versiyonu | Node.js |
 | `npm run node-crypto` | Native crypto versiyonu | Node.js |
-| `npm run serve` | HTTP server başlat | Browser |
-| `npm run dev` | Development mode | Node.js |
-| `npm run dev-crypto` | Crypto-JS dev mode | Node.js |
-| `npm run dev-node-crypto` | Native crypto dev mode | Node.js |
+| `npm run serve` | HTTP server başlat | Browser (legacy) |
+
+### Browser (Vite) Scripts
+```bash
+cd browser
+npm run dev          # Vite dev server
+npm run build        # Production build
+npm run preview      # Preview build
+```
 
 ## 🔐 Güvenlik Özellikleri
 
