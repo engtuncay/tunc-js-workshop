@@ -12,7 +12,6 @@
     "dev-crypto": "node --watch demo-node-crypto.js",
     "dev-node-crypto": "node --watch test-node-crypto.js",
     "serve": "npx http-server -p 8000",
-    "serve-local": "npx http-server -p 8001 ./browser",
     "test": "node test.js"
   },
   "keywords": [
