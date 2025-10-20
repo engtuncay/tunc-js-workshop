@@ -1,4 +1,4 @@
-import { Block } from './block-browser-vite.js'
+import { Block } from './block-vite.js'
 import CryptoJS from 'crypto-js'
 
 // Blockchain sınıfı - Tüm blokları yöneten ana sınıf (Vite Bundled versiyonu)

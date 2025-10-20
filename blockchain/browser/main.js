@@ -1,7 +1,7 @@
 // Main Vite Application Entry Point
 import CryptoJS from 'crypto-js'
-import { Block } from './block-browser-vite.js'
-import { Blockchain } from './blockchain-browser-vite.js'
+import { Block } from './block-vite.js'
+import { Blockchain } from './blockchain-vite.js'
 import './style.css' // Vite CSS import
 
 // Global CryptoJS'i window'a ekle (eski kodla uyumluluk için)
