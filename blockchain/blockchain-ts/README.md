@@ -1,6 +1,6 @@
 # TypeScript Blockchain Demo - Vite Edition
 
-Bu proje, JavaScript'ten TypeScript'e dönüştürülmüş bir blockchain implementasyonudur. Vite bundler kullanarak modern web teknolojileri ile geliştirilmiştir.
+Bu proje bir blockchain implementasyonudur. Vite bundler kullanarak modern web teknolojileri ile geliştirilmiştir.
 
 ## 🚀 Özellikler
 
