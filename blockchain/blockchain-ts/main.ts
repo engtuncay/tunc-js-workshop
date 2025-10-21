@@ -345,9 +345,11 @@ function displayBlockchain(): void {
   let html = '<h3>Blockchain Blokları (Vite Bundled):</h3>'
   html += `<div><strong>Blockchain ID:</strong> ${myBlockchain.id}</div>`
   
-  if (myBlockchain.utxoSet.size > 0) {
+  // GÜVENLIK: Güvenli getter kullanarak UTXO Set'e erişim
+  const utxoSet = myBlockchain.getUtxoSet()
+  if (utxoSet.size > 0) {
     html += '<div class="utxo-info"><h4>📊 UTXO Set (Optimize Edilmiş Bakiyeler):</h4>'
-    for (const [address, balance] of myBlockchain.utxoSet.entries()) {
+    for (const [address, balance] of utxoSet.entries()) {
       html += `<div class="balance"><strong>${address}:</strong> ${balance}</div>`
     }
     html += '</div>'

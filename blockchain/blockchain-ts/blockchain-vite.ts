@@ -34,8 +34,11 @@ export class Blockchain {
   public difficulty: number
   public pendingTransactions: Transaction[]
   public readonly miningReward: number = 100
-  public utxoSet: Map<string, number>
-  public addressIndex: Map<string, boolean>
+  
+  // GÜVENLIK: UTXO set private - sadece getter ile erişilebilir
+  private utxoSet: Map<string, number>
+  private addressIndex: Map<string, boolean>
+  
   public miningStats: MiningStats
   public viteBuildInfo: ViteBuildInfo
 
@@ -226,6 +229,16 @@ export class Blockchain {
     return result
   }
 
+  // GÜVENLIK: UTXO Set'e sadece okunabilir erişim (immutable kopya)
+  public getUtxoSet(): ReadonlyMap<string, number> {
+    return new Map(this.utxoSet) // Yeni Map kopyası döndürülür - orijinal korunur
+  }
+
+  // GÜVENLIK: UTXO Set'i Object olarak döndür (display için)
+  public getUtxoSetAsObject(): Record<string, number> {
+    return Object.fromEntries(this.utxoSet)
+  }
+
   // Tüm adresleri getir
   public getAllAddresses(): string[] {
     const addresses = new Set<string>()
@@ -318,7 +331,7 @@ export class Blockchain {
   public displayBlockchain(): void {
     console.log('\n=== VITE BUNDLED BLOCKCHAIN BİLGİLERİ ===')
     console.log(`🆔 Blockchain ID: ${this.id}`)
-    console.log(`📊 UTXO Set: ${JSON.stringify(Object.fromEntries(this.utxoSet), null, 2)}`)
+    console.log(`📊 UTXO Set: ${JSON.stringify(this.getUtxoSetAsObject(), null, 2)}`)
     console.log(`⛏️ Mining İstatistikleri:`, this.miningStats)
     console.log(`🔧 Vite Build Info:`, this.viteBuildInfo)
     
