@@ -3,6 +3,7 @@
 ## 🌐 Problem: Tek Node vs Çoklu Node
 
 ### Mevcut Durum (Single Node)
+
 ```typescript
 const myBlockchain = new Blockchain()
 // Sadece tek bir instance, tek bir UTXO set
@@ -32,7 +33,7 @@ Node A                Node B                Node C
 ```
 
 **Consensus Kuralları:**
-- En uzun (longest chain) geçerlidir
+- En uzun (longest chain) geçerlidir. (has longest block set)
 - Her node aynı mining kurallarını uygular
 - Proof of Work ile sybil attack engellenir
 - Her block diğer node'lar tarafından doğrulanır
@@ -208,6 +209,7 @@ fakeNodePower = 0 / totalStake = 0%
 ## 🌐 P2P Network Synchronization
 
 ### Yeni Node Katılımı:
+
 ```typescript
 class P2PNode {
   async syncWithNetwork() {
